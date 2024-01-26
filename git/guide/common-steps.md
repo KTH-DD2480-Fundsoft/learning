@@ -2,7 +2,7 @@
 
 There are a set of steps that is almost always used in Git. Let's explore them. I will assume that Git is already setup with a SSH key or similar and it is ready to be used.
 
-After having read this, the [cheat sheet]() will make sense.
+After having read this, the [cheat sheet](cheat-sheet.md) will make sense.
 
 ## Table of Contents
 0. [Cloning a Git repository (repo)](#0-cloning-a-git-repository-repo)
