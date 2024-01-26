@@ -31,12 +31,12 @@ More about how Pull Requests work in practice is explained on another page. Now 
 When branching from `main`, the name of the branch should follow the following structure:
 
 ```
-<prefix>/<ticket-id>/<branch-name>
+<prefix>/<ticket-id>/<branch-description>
 ```
 
 It doesn't actually technically matter what a branch name is called, it is just for organisation:
 
-- `<prefix>` denotes what type of branch it is. Does it implement a new feature? Does it fixes a bug? Is it a release branch (*more about that later*)? The prefixes need to be pre-defined, as in you should choose any of the possible prefixes in the project. 
+- `<prefix>` denotes what type of branch it is. Does it implement a new feature? Does it fix a bug? Is it a release branch (*more about that later*)? The prefixes need to be pre-defined, as in you should only be able choose any of the possible prefixes in the project. 
 - `<ticket-id>` is some sort of identifier for the issue that the branch is addressing. With "issue" I mean for example a GitHub issue or any other ticket in other systems, such as a Jira ticket.
 - `<branch-description>` is simply a short description of the what the branch is specifically about.
 
@@ -62,7 +62,7 @@ The ticket identifier is decided by the issue/ticket system that one is using an
 
 ### Branch description
 
-This is a short description in kebab case (i.e., words separated with hyphens "`-`"). A branch name could be for example `create-back-button`
+This is a short description in kebab case (*i.e., words separated with hyphens "`-`"*). A branch description could for example be `create-back-button`
 
 ### A full branch name
 
@@ -70,9 +70,9 @@ A full branch name could for example be: `feature/42/create-back-button`.
 
 ## Release management
 
-This part might be irrelevant for this course, but it is still good to know. In this workflow, production code is release by creating a *release branch* from the `main` named in the following format: `release/x.y.z` (more about what the `x.y.z` means farther down).
+This part might be irrelevant for this course, but it is still good to know. In this workflow, production code is released by creating a *release branch* from the `main` named in the following format: `release/x.y.z` (more about what the `x.y.z` means farther down).
 
-After the release branch has been created, a release is made on GitHub by also creating a tag (*a Git functionality that is snapshot of the current state of the commit*) named after the version of the release and connecting the tag to the release. To be clear, this is a GitHub functionality and is how a release is made in GitHub.
+After the release branch has been created, a release is made on GitHub by also creating a tag (*a Git functionality that is snapshot of the current state of the commit*) named after the version of the release and connecting the tag to the release. To be clear, this variant of a release functionality is a specific to GitHub.
 
 After this, the release branch can be safely deleted after some time. However, a critical bug might be discovered in the release and a fix is needed (*so-called "hotfix"*). This critical bug will also be present in the "trunk" (*i.e., `main` branch*), so a hotfix branch is created from the main and the hotfix is implemented. After it has been implemented, that specific implementation (*i.e., that specific commit*) is then merged to the release branch. Such a merge is called a *cherry-pick merge*. After the cherry-pick merge is done and the hotfix is added to the release branch, then another release is created with another tag.
 
